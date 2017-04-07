@@ -1,0 +1,45 @@
+{
+  "name": "mongomem",
+  "version": "0.1.0",
+  "description": "In-memory MongoDB Server with Mongoose auto-connection",
+  "main": "src/index.js",
+  "author": "Connor Imrie",
+  "license": "MIT",
+  "scripts": {
+    "test": "NODE_ENV=testing ava --verbose --timeout=60000 --serial"
+  },
+  "devDependencies": {
+    "ava": "^0.19.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-es2017": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-runtime": "^6.23.0",
+    "mongodb-prebuilt": "^6.2.0",
+    "portfinder": "^1.0.13",
+    "temp-path": "^1.0.0",
+    "tmp": "0.0.31",
+    "uuid": "^3.0.1"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "source": [
+      "**/*.{js,jsx}",
+      "!dist/**/*"
+    ],
+    "match": [
+      "*"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "tap": false,
+    "powerAssert": false,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  }
+}
