@@ -75,28 +75,40 @@ var getHelper = function getHelper() {
 
 var start = function () {
     var _ref2 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee2() {
-        var helper;
+        var helper, serverInstance;
         return _regenerator2.default.wrap(function _callee2$(_context2) {
             while (1) {
                 switch (_context2.prev = _context2.next) {
                     case 0:
-                        _context2.next = 2;
-                        return getHelper();
+                        if (!server.existingServer) {
+                            _context2.next = 2;
+                            break;
+                        }
+
+                        return _context2.abrupt('return', server.existingServer);
 
                     case 2:
+                        _context2.next = 4;
+                        return getHelper();
+
+                    case 4:
                         helper = _context2.sent;
 
                         server.tearDown = function () {
                             helper.mongoBin.childProcess.kill();
                         };
 
-                        _context2.next = 6;
+                        _context2.next = 8;
                         return helper.run();
 
-                    case 6:
-                        return _context2.abrupt('return', _context2.sent);
+                    case 8:
+                        serverInstance = _context2.sent;
 
-                    case 7:
+                        server.existingServer = serverInstance;
+
+                        return _context2.abrupt('return', serverInstance);
+
+                    case 11:
                     case 'end':
                         return _context2.stop();
                 }
@@ -143,7 +155,8 @@ var server = {
     storageEngine: 'ephemeralForTest',
     dbPath: null,
     debug: false,
-    tearDown: null
+    tearDown: null,
+    existingServer: null
 };
 
 exports.default = server;
