@@ -5,11 +5,12 @@ import portfinder from 'portfinder';
 
 let getHelper = () => {
     return new Promise(async (resolve, reject) => {
-        portfinder.basePort = server.port;
+        portfinder.basePort = server.port || 27017;
 
         server.port = await portfinder.getPortPromise();
-        server.storageEngine = 'ephemeralForTest';
-        server.dbPath = tmp.dirSync({prefix: "mongomem-"}).name;
+        server.storageEngine = server.storageEngine|| 'ephemeralForTest';
+        server.tmpFile = tmp.dirSync({prefix: "mongomem-", unsafeCleanup: true});
+        server.dbPath = server.dbPath || server.tmpFile.name;
 
         let mongodHelper = new MongodHelper(
             [
@@ -28,6 +29,9 @@ let getHelper = () => {
 
 let start = async () => {
     let helper = await getHelper();
+    server.tearDown = () => {
+        helper.mongoBin.childProcess.kill();
+    };
 
     return await helper.run();
 };
@@ -40,10 +44,11 @@ let getConnectionString = async() => {
 let server = {
     start,
     getConnectionString,
-    port: 27017,
+    port: null,
     storageEngine: 'ephemeralForTest',
     dbPath: null,
     debug: false,
+    tearDown: null,
 };
 
 export default server;

@@ -6,5 +6,7 @@ test.before('setup mongo server', async t => {
 });
 
 test('random mongod server is started once', async t => {
+    server.tearDown();
+    t.pass();
 
 });
