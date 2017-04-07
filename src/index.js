@@ -1,5 +1,2 @@
 import * as MongoDBServer from './MongodServer';
-
-export default {
-    MongoDBServer
-}
+module.exports.MongoDBServer = MongoDBServer;
