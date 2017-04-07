@@ -1,4 +1,4 @@
-import MongoDBServer from './MongodServer';
+import * as MongoDBServer from './MongodServer';
 
 export default {
     MongoDBServer

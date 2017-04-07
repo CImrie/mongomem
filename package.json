@@ -1,6 +1,6 @@
 {
   "name": "mongomem",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "In-memory MongoDB Server with Mongoose auto-connection",
   "main": "build/index.js",
   "author": "Connor Imrie",
