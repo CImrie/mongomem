@@ -1,5 +1,10 @@
 import test from 'ava';
+import server from '../src/MongodServer';
 
-test('it works', t => {
-   t.is(true, true);
+test.before('setup mongo server', async t => {
+    await server.start();
+});
+
+test('random mongod server is started once', async t => {
+
 });
