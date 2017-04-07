@@ -28,12 +28,19 @@ let getHelper = () => {
 };
 
 let start = async () => {
+    if(server.existingServer) {
+        return server.existingServer;
+    }
+
     let helper = await getHelper();
     server.tearDown = () => {
         helper.mongoBin.childProcess.kill();
     };
 
-    return await helper.run();
+    let serverInstance = await helper.run();
+    server.existingServer = serverInstance;
+
+    return serverInstance;
 };
 
 let getConnectionString = async() => {
@@ -49,6 +56,7 @@ let server = {
     dbPath: null,
     debug: false,
     tearDown: null,
+    existingServer: null,
 };
 
 export default server;
