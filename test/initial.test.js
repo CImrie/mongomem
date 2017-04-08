@@ -1,5 +1,5 @@
 import test from 'ava';
-import server from '../src/MongodServer';
+import { MongoDBServer as server } from '../src';
 
 let tmpServer = null;
 
