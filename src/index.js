@@ -1,1 +1,5 @@
-export MongoDBServer from './MongoDBServer';
+import MongoDBServer from './MongoDBServer';
+
+export {
+  MongoDBServer
+};
