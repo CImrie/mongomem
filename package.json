@@ -16,6 +16,7 @@
     "babel-preset-es2017": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-runtime": "^6.23.0",
+    "get-port": "^3.1.0",
     "mongodb-prebuilt": "^6.2.0",
     "portfinder": "^1.0.13",
     "temp-path": "^1.0.0",
