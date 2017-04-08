@@ -1,15 +1,14 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
+exports.MongoDBServer = undefined;
 
-var _MongodServer = require('./MongodServer');
+var _MongoDBServer2 = require('./MongoDBServer');
 
-var MongoDBServer = _interopRequireWildcard(_MongodServer);
+var _MongoDBServer3 = _interopRequireDefault(_MongoDBServer2);
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
-    MongoDBServer: MongoDBServer
-};
+exports.MongoDBServer = _MongoDBServer3.default;
