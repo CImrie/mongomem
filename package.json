@@ -1,6 +1,6 @@
 {
   "name": "mongomem",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "In-memory MongoDB Server with Mongoose auto-connection",
   "main": "build/index.js",
   "author": "Connor Imrie",
@@ -8,9 +8,9 @@
   "scripts": {
     "test": "NODE_ENV=testing ava --verbose --timeout=6000"
   },
-  "repository" :{
-    "type" : "git", 
-    "url" : "https://github.com/CImrie/mongomem.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CImrie/mongomem.git"
   },
   "devDependencies": {
     "ava": "^0.19.0",
@@ -23,6 +23,7 @@
     "get-port": "^3.1.0",
     "mongodb-prebuilt": "^6.2.0",
     "portfinder": "^1.0.13",
+    "ps-node": "^0.1.6",
     "temp-path": "^1.0.0",
     "tmp": "0.0.31",
     "uuid": "^3.0.1"

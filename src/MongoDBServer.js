@@ -37,15 +37,25 @@ let start = async () => {
   }
 
   let helper = await getHelper();
-  server.tearDown = function(){
-    server.tmpFile.removeCallback();
-    if(helper.mongoBin.childProcess.connected) {
-      helper.mongoBin.childProcess.kill();
+  let started = await helper.run();
+  server.running = true;
+
+  let child = helper.mongoBin.childProcess;
+  
+  child.on('exit', function() {
+    server.running = false;
+  });
+
+  child.on('SIGINT', () => {});
+  child.on('uncaughtException', () => {});
+
+  server.tearDown = async () => {
+    if(server.running) {
+      await server.tmpFile.removeCallback();
+      await helper.mongoBin.childProcess.kill();
+      server.running = false;
     }
   };
-
-  let started = await helper.run();
-  server.running = started;
 
   return started;
 };

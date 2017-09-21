@@ -9,10 +9,16 @@ test.before('setup mongo server', async t => {
 });
 
 test('random mongod server is started once', async t => {
-    server.tearDown();
+    await server.tearDown();
     t.pass();
 });
 
 test('always use same server instance if available', async t => {
     t.is(tmpServer, await server.start());
+});
+
+test.afterEach('tear down server', async t => {
+	if(server.running) {
+		await server.tearDown();		
+	}
 });
