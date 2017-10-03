@@ -4,7 +4,7 @@ import test from 'ava';
 import { MongoDBServer as server } from '../../src';
 
 test.before('setup mongo server', async t => {
-  server.debug = true;
+  server.debug = false;
   // tmpServer = await server.start();
 });
 
