@@ -6,7 +6,7 @@ tmp.setGracefulCleanup();
 
 let getHelper = () => {
   return new Promise(async (resolve, reject) => {
-    server.port = await getport(server.port || 27017);
+    server.port = await getport();
     server.storageEngine = server.storageEngine|| 'ephemeralForTest';
     server.tmpFile = tmp.dirSync({prefix: "mongomem-", unsafeCleanup: true});
 
