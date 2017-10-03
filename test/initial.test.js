@@ -4,7 +4,7 @@ import { MongoDBServer as server } from '../src';
 let tmpServer = null;
 
 test.before('setup mongo server', async t => {
-    server.debug = true;
+    server.debug = false;
     tmpServer = await server.start();
 });
 

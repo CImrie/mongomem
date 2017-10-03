@@ -17,9 +17,11 @@ The example below uses async/await from ES7. If you wish to use the same syntax,
 you should transpile your code using `babel-preset-es2017`. Alternatively, if you are already
 using ES6 then you can convert it to the appropriate Promise syntax.
 
+Available on NPM using: `npm install mongomem --save-dev` or `yarn add mongomem --dev`
+
 *See here for usage examples: https://coligo.io/javascript-async-await/* 
 
-```ecmascript 6
+```javascript
 // helpers.js
 import mongoose from 'mongoose'
 import { MongoDBServer } from 'mongomem'
