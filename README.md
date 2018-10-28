@@ -4,6 +4,9 @@ This package provides an in-memory MongoDB Server.
 Designed with testing in mind, the server will allow you to connect
 your favourite ODM or client library to the MongoDB Server and run integration tests isolated from each other.
 
+**How it works**
+This project is not an alternative in-memory MongoDB implementation. This runs using [mongodb-prebuilt](https://github.com/winfinit/mongodb-prebuilt), which uses a MongoDB binary from NPM and runs it with the [ephemeralForTest](https://docs.mongodb.com/manual/release-notes/3.2/#ephemeralfortest-storage-engine) storage engine.
+
 **Note about AVA Test Runner**
 The package was designed to run one server instance (max) at a time. As such it runs one server instance
 per test file in AVA (as a result of AVA using forked processes).
